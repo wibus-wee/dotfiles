@@ -130,5 +130,6 @@ install_operator_mono_nerd_font
 
 # Install npm packages
 npm install -g pnpm
+pnpm setup
 
 source ~/.zshrc
