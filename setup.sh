@@ -1,11 +1,16 @@
 sudo -v
 
-# System setting
+######################
+### System setting ###
+######################
+
+######################
+#      Finder        #
+######################
 
 ## Disable the warning when changing a file extension
 echo "Disabling the warning when changing a file extension..."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
 
 ## Show path bar, and layout as multi-column
 echo "Show path bar, and layout as multi-column..."
@@ -24,6 +29,10 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 echo "Search in current folder by default..."
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf
 
+######################
+#       Safari       #
+######################
+
 ## Enable Develop Menu, Web Inspector
 echo "Enabling Develop Menu, Web Inspector..."
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
@@ -32,10 +41,15 @@ defaults write com.apple.Safari WebKitDeveloperExtras -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
+######################
+#      Disk          #
+######################
+
 ## Avoid creating .DS_Store files on USB or network volumes
 echo "Avoid creating .DS_Store files on USB or network volumes..."
 defaults write com.apple.desktopservices dsdontwriteusbstores -bool true
 defaults write com.apple.desktopservices dsdontwritenetworkstores -bool true
+
 
 ## Disable disk image verification
 echo "Disabling disk image verification..."
@@ -43,16 +57,18 @@ defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-## Disable personalized advertising
-# echo "Disabling personalized advertising..."
-# defaults com.apple.AdLib forceLimitAdTracking -bool true
-# defaults com.apple.AdLib allowApplePersonalizedAdvertising -bool false
-# defaults com.apple.AdLib allowIdentifierForAdvertising -bool false
+######################
+#       Others       #
+######################
 
 ## Expand save panel by default
 echo "Expanding save panel by default..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+######################
+### Other setting ###
+######################
 
 ## Disable Gatekeeper
 sudo spctl --master-disable
