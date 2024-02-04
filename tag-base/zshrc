@@ -1,0 +1,11 @@
+source ~/.zprofile
+
+# alias
+alias rm='trash -F'
+alias pip='pip3'
+alias mkdir='mkdir -p'
+alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp --exclude-lang=JSON,SVG,XML'
+alias ll='ls -l'
+
+eval "$(starship init zsh)"
+export STARSHIP_LOG=error
