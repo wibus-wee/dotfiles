@@ -84,10 +84,20 @@ install_rcm() {
 install_rcm
 
 cd
-git clone git@github.com:wibus-wee/dotfiles.git .dotfiles
-rcup -t base
-mkdir -p .config
-mv .Brewfile Brewfile
+dotfiles() {
+  if test ! -d ~/.dotfiles; then
+    echo "Cloning dotfiles..."
+    git clone git@github.com:wibus-wee/dotfiles.git .dotfiles
+    rcup -t base
+    mkdir -p .config
+    mv .Brewfile Brewfile
+  else
+    echo "Updating dotfiles..."
+    cd ~/.dotfiles
+    git pull
+  fi
+}
+clone_dotfiles
 brew bundle install
 
 # Install Operator Mono Nerd Font
@@ -103,8 +113,3 @@ install_operator_mono_nerd_font() {
 install_operator_mono_nerd_font
 
 source ~/.zshrc
-
-# Countdown
-echo "Rebooting in 5 seconds..."
-sleep 5
-sudo reboot
