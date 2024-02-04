@@ -9,5 +9,9 @@ alias ll='ls -l'
 alias c80='bclm write 80'
 alias c100='bclm write 100'
 
+alias gc="git clone"
+alias gp="git pull"
+alias pp="git push"
+
 eval "$(starship init zsh)"
 export STARSHIP_LOG=error

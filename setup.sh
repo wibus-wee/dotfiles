@@ -128,4 +128,7 @@ install_operator_mono_nerd_font() {
 }
 install_operator_mono_nerd_font
 
+# Install npm packages
+npm install -g pnpm
+
 source ~/.zshrc
