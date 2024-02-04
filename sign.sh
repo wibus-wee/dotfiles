@@ -65,3 +65,4 @@ gpg_gen() {
 }
 
 ssh_gen
+gpg_gen

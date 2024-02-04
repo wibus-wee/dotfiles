@@ -97,7 +97,7 @@ dotfiles() {
     git pull
   fi
 }
-clone_dotfiles
+dotfiles
 brew bundle install
 
 # Install Operator Mono Nerd Font
