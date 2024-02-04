@@ -6,6 +6,8 @@ alias pip='pip3'
 alias mkdir='mkdir -p'
 alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp --exclude-lang=JSON,SVG,XML'
 alias ll='ls -l'
+alias c80='bclm write 80'
+alias c100='bclm write 100'
 
 eval "$(starship init zsh)"
 export STARSHIP_LOG=error
