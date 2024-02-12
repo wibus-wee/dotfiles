@@ -9,11 +9,21 @@ alias ll='ls -l'
 alias c80='bclm write 80'
 alias c100='bclm write 100'
 
+alias gg="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
 alias gc="git clone"
 alias gp="git pull"
 alias pp="git push"
 
 alias po="export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153"
 
+# starship
 eval "$(starship init zsh)"
 export STARSHIP_LOG=error
+
+# pnpm
+export PNPM_HOME="/Users/wibus/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
