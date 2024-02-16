@@ -128,8 +128,13 @@ install_operator_mono_nerd_font() {
 }
 install_operator_mono_nerd_font
 
-# Install npm packages
-npm install -g pnpm
-pnpm setup
+# Install pnpm
+install_pnpm() {
+  if test ! $(which pnpm); then
+    echo "Installing pnpm..."
+    npm i -g pnpm
+    pnpm setup
+  fi
+}
 
 source ~/.zshrc
