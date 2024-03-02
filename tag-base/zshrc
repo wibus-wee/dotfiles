@@ -16,6 +16,8 @@ alias pp="git push"
 
 alias po="export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153"
 
+alias cat="bat" # it should install bat from brew first
+
 # starship
 eval "$(starship init zsh)"
 export STARSHIP_LOG=error
