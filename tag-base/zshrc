@@ -9,7 +9,7 @@ alias ll='ls -l'
 alias c80='bclm write 80'
 alias c100='bclm write 100'
 
-alias gg="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
+alias gf="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
 alias gc="git clone"
 alias gp="git pull"
 alias pp="git push"
