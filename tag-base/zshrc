@@ -1,6 +1,7 @@
 source ~/.zprofile
 
 # alias
+alias mtr='sh ~/.mtr.sh'
 alias rm='trash -F'
 alias pip='pip3'
 alias mkdir='mkdir -p'
