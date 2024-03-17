@@ -7,10 +7,10 @@ alias pip='pip3'
 alias mkdir='mkdir -p'
 alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp --exclude-lang=JSON,SVG,XML'
 alias ll='ls -l'
-alias c80='bclm write 80'
-alias c100='bclm write 100'
+alias c80='sudo bclm write 80 && echo "Battery charged to 80%"'
+alias c100='sudo bclm write 100 && echo "Battery charged to 100%"'
 
-alias gf="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
+alias gg="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
 alias gc="git clone"
 alias gp="git pull"
 alias pp="git push"
@@ -18,6 +18,15 @@ alias pp="git push"
 alias po="export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153"
 
 alias cat="bat" # it should install bat from brew first
+
+# brew
+export HOMEBREW_PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple #ckbrew
+export HOMEBREW_API_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api  #ckbrew
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles #ckbrew
+eval $(/opt/homebrew/bin/brew shellenv) #ckbrew
+
+# GPG
+export GPG_TTY=$(tty)
 
 # starship
 eval "$(starship init zsh)"
@@ -30,3 +39,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# codeedit app
+[[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"

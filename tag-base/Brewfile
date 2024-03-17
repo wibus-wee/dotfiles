@@ -11,7 +11,7 @@ brew "git-lfs"
 brew "jq"
 brew "rcm"
 brew "redis", restart_service: true
-brew "ripgrep"
+# brew "ripgrep"
 brew "starship"
 brew "tree"
 brew "wget"
