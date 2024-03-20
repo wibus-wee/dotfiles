@@ -1,12 +1,19 @@
 # mtr.sh - MainTaineR script
-echo "MainTaineR script - @wibus-wee"
+echo "🪄 MTR - @wibus-wee"
 
-## Update & Upgrade brew
-echo "Update & Upgrade brew"
+
+echo "⌛️ Update .dotfiles"
+cd ~/.dotfiles
+git pull
+echo "✅ .dotfiles updated"
+
+
+echo "⌛️ Update & Upgrade brew"
 brew update
 brew upgrade
+echo "✅ brew updated & upgraded"
 
-## Clean up brew
-echo "Clean up brew"
+echo "⌛️ Clean up brew"
 brew cleanup --prune=all
 brew autoremove
+echo "✅ brew cleaned up"
