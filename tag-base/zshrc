@@ -5,7 +5,7 @@ alias mtr='sh ~/.mtr.sh'
 alias rm='trash -F'
 alias pip='pip3'
 alias mkdir='mkdir -p'
-alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp --exclude-lang=JSON,SVG,XML'
+alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp --exclude-lang=JSON,SVG,XML,YAML'
 alias ll='ls -l'
 alias c80='sudo bclm write 80 && echo "Battery charged to 80%"'
 alias c100='sudo bclm write 100 && echo "Battery charged to 100%"'
@@ -41,6 +41,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# mongodb
+export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
 
 # codeedit app
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
