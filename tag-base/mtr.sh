@@ -36,3 +36,6 @@ echo "✅ brew cleaned up"
 echo "⌛️ Update & Upgrade Spicetify"
 spicetify update
 spicetify backup apply
+echo "✅ Spicetify updated & upgraded"
+
+exit 0
