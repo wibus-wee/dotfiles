@@ -4,8 +4,23 @@ echo "🪄 MTR - @wibus-wee"
 
 echo "⌛️ Update .dotfiles"
 cd ~/.dotfiles
-git pull
-echo "✅ .dotfiles updated"
+git fetch
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse @{u})
+if [ $LOCAL != $REMOTE ]; then
+    git pull
+    if [ $? -ne 0 ]; then
+      echo "✅ .dotfiles updated"
+      echo "🔄 Restarting mtr command"
+      mtr
+      exit 0
+    else
+      echo "❌ .dotfiles update failed"
+    fi
+else
+    echo "♾️ .dotfiles is up to date"
+fi
+
 
 
 echo "⌛️ Update & Upgrade brew"
