@@ -17,3 +17,7 @@ echo "⌛️ Clean up brew"
 brew cleanup --prune=all
 brew autoremove
 echo "✅ brew cleaned up"
+
+echo "⌛️ Update & Upgrade Spicetify"
+spicetify update
+spicetify backup apply

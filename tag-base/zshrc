@@ -47,3 +47,5 @@ export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
 
 # codeedit app
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
+
+export PATH=$PATH:/Users/wibus/.spicetify
