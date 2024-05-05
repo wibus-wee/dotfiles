@@ -12,8 +12,9 @@ alias c100='sudo bclm write 100 && echo "Battery charged to 100%"'
 
 alias gg="git commit --amend --no-edit -n -a && git push -f" # Rewrite the last commit and push
 alias gc="git clone"
-alias gp="git pull"
-alias pp="git push"
+alias gpp="git pull"
+alias gp="git push"
+alias pp="git pull && git push"
 
 alias po="export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153"
 
