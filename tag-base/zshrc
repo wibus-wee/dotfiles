@@ -15,6 +15,7 @@ alias gc="git clone"
 alias gpp="git pull"
 alias gp="git push"
 alias pp="git pull && git push"
+alias greset="git reset HEAD^1"
 
 alias po="export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153"
 
@@ -44,7 +45,10 @@ esac
 # pnpm end
 
 # mongodb
-export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
+# export PATH="/usr/local/opt/mongodb-community@5.0/bin:$PATH"
+
+# node@20
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 # codeedit app
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
