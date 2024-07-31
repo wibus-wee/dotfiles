@@ -54,3 +54,5 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 [[ "$TERM_PROGRAM" == "CodeEditApp_Terminal" ]] && . "/Applications/CodeEdit.app/Contents/Resources/codeedit_shell_integration.zsh"
 
 export PATH=$PATH:/Users/wibus/.spicetify
+
+export PATH=$PATH:/Users/wibus/go/bin
