@@ -64,7 +64,7 @@ ssh_manage() {
         if [ "$add_comment" = "y" ]; then
           read -p "请输入备注: " comment_text
           sed -i '' "/# Comment:.*${key%.pub}/d" ~/.ssh/config
-          echo "# Comment: ${key%.pub} - $comment_text" >> ~/.ssh/config
+          echo " # Comment: ${key%.pub} - $comment_text" >> ~/.ssh/config
           echo "备注已更新"
         fi
         read -p "是否复制到剪贴板？(y/n) " copy
