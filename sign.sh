@@ -1,15 +1,21 @@
 ssh_gen() {
-  if [ -f ~/.ssh/id_ed25519 ]; then
-    echo "The SSH key already exists. Do you want to overwrite it?"
-    select yn in "Yes" "No"; do
+  local key_name=${1:-"id_ed25519"}  # 默认名称为id_ed25519
+  local comment=${2:-"1596355173@qq.com"}  # 默认邮箱
+  local key_path="$HOME/.ssh/$key_name"
+
+  if [ -f "$key_path" ]; then
+    echo "SSH密钥 $key_name 已存在。是否要覆盖？"
+    select yn in "y/是" "n/否"; do
       case $yn in
-        Yes ) break;;
-        No ) return;;
+        "y/是" ) break;;
+        "n/否" ) return;;
+        * ) echo "请选择 1 或 2";;
       esac
     done
   fi
-  echo "Generating a new SSH key for GitHub..."
-  ssh-keygen -t ed25519 -C "1596355173@qq.com"
+  
+  echo "正在生成新的SSH密钥 $key_name..."
+  ssh-keygen -t ed25519 -C "$comment" -f "$key_path"
 
   echo "Starting the ssh-agent in the background..."
   eval "$(ssh-agent -s)"
@@ -18,11 +24,11 @@ ssh_gen() {
   echo "Host *
     AddKeysToAgent yes
     UseKeychain yes
-    IdentityFile ~/.ssh/id_ed25519" > ~/.ssh/config
-  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+    IdentityFile $key_path" >> ~/.ssh/config
+  ssh-add --apple-use-keychain "$key_path"
 
   echo "Copying the SSH key to the clipboard..."
-  pbcopy < ~/.ssh/id_ed25519.pub
+  pbcopy < "$key_path.pub"
 
   echo "The SSH key has been copied to the clipboard. Please add it to your GitHub account."
   echo "Opening the GitHub website..."
@@ -33,36 +39,25 @@ ssh_gen() {
 }
 
 gpg_gen() {
-  # 检查 gpg
-  if test ! $(which gpg); then
-    echo "Please install GPG first."
-    open "https://sourceforge.net/p/gpgosx/docu/Download"
-    return
-  fi
-  if [ -f ~/.gnupg/gpg.conf ]; then
-    echo "The GPG key already exists. Do you want to continue?"
-    select yn in "Yes" "No"; do
-      case $yn in
-        Yes ) break;;
-        No ) return;;
-      esac
-    done
-  fi
-  echo "Generating a new GPG key..."
+  local comment=${1:-""}  # 添加备注参数
+  
+  echo "正在生成新的 GPG 密钥..."
   gpg --full-generate-key
 
-  echo "Listing the GPG keys..."
-  gpg --list-secret-keys --keyid-format LONG
+  # 获取最新生成的密钥 ID
+  local key_id=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -n 1 | awk '{print $2}' | cut -d'/' -f2)
+  
+  # 如果提供了备注，保存到配置文件
+  if [ ! -z "$comment" ]; then
+    echo "# GPG Comment: $key_id - $comment" >> ~/.gnupg/comments
+  fi
 
-  echo "Copying the GPG key..."
-  echo "Please enter the GPG key ID:"
-  read gpg_key_id
-  gpg --armor --export $gpg_key_id | pbcopy
-
-  echo "The GPG key has been copied to the clipboard. Please add it to your GitHub account."
-  echo "Opening the GitHub website..."
-  open "https://github.com/settings/keys"
+  echo "密钥 ID: $key_id 已生成"
+  gpg --armor --export $key_id | pbcopy
+  echo "公钥已复制到剪贴板"
 }
 
 ssh_gen
-gpg_gen
+
+read -p "请输入 GPG 密钥备注（可选）: " comment
+gpg_gen "$comment"
