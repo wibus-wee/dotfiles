@@ -8,7 +8,7 @@ This is a collection of my dotfiles.
 > [!NOTE]
 > It will backup your development environment, and install the dotfiles.
 >
-> Quickly restore your brand new computer to your familiar development environment.
+> _**Quickly restore your brand new computer to your familiar development environment 😄**_
 
 ## Installation
 
