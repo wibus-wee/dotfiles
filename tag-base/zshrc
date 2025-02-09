@@ -5,7 +5,7 @@ alias mtr='sh ~/.mtr.sh'
 alias rm='trash -F'
 alias pip='pip3'
 alias python='python3'
-alias mkdir='mkdir -p'
+alias mkdir='mkdir -p' # -p 如果目录存在，不会报错
 alias cl='cloc . --exclude-dir=node_modules,.nuxt,.next,build,.vscode,dist,release,tmp,cache,cmake-build,out --exclude-lang=JSON,SVG,XML,YAML'
 alias ll='ls -l'
 alias c80='sudo bclm write 80 && echo "Battery charged to 80%"'
