@@ -157,8 +157,8 @@ dotfiles() {
     if test ! -d ~/.dotfiles; then
         echo "正在克隆 dotfiles..."
         
-        git clone git@github.com:wibus-wee/dotfiles.git ~/.dotfiles;
-
+        # git clone git@github.com:wibus-wee/dotfiles.git ~/.dotfiles;
+        git clone https://github.com/wibus-wee/dotfiles.git ~/.dotfiles;
         # 安全地移动文件
         if [ -f Brewfile ]; then
             warning "Brewfile 已存在，将备份为 Brewfile.backup"
