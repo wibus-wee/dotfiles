@@ -1,8 +1,3 @@
-[safe]
-	directory = /opt/homebrew
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core/
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask/
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services/
 [user]
 	name = wibus-wee
 	email = 1596355173@qq.com

@@ -27,7 +27,7 @@ export HOMEBREW_API_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles #ckbrew
 export PATH="/opt/homebrew/bin:$PATH"
 HOMEBREW=$(which brew)
-eval $($HOMEBREW shellenv) #ckbrew
+eval $($HOMEBREW shellenv)
 
 # GPG
 export GPG_TTY=$(tty)
@@ -57,7 +57,7 @@ export PATH=$PATH:/Users/wibus/.spicetify
 
 export PATH=$PATH:/Users/wibus/go/bin
 
-export PATH=$PATH:/Users/wibus/Library/Python/3.9/binexport PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 export PATH=$PATH:/Users/wibus/Library/Python/3.9/bin
 
